@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Figtree } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
+import Nav from "@/components/nav";
 
 const geistHeading = Geist({subsets:['latin'],variable:'--font-heading'});
 
@@ -25,7 +26,10 @@ export default function RootLayout({
       className={cn("antialiased", fontMono.variable, "font-sans", figtree.variable, geistHeading.variable)}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <Nav/>
+          {children}
+          </ThemeProvider>
       </body>
     </html>
   )
